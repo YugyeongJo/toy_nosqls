@@ -1,7 +1,4 @@
 def quizmaking():
-    list_quiz = []
-    question_type = int(input("문제 유형을 입력하세요. 숫자만 입력하세요.: "))
-    num_questions = int(input("문항 수를 입력하세요.: "))
     list_quiz = [] # 리스트화
     question_type = int(input("문제 유형을 입력하세요. 숫자만 입력하세요."))  # 문제생성1
     num_questions = int(input("문항 수를 입력하세요."))                     # 문제생성2

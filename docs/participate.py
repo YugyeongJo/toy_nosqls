@@ -30,6 +30,3 @@ def answermaking():
         elif quit_input == 'c':
             continue
 
-list = answermaking()
-
-print(list)
