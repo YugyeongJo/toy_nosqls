@@ -56,7 +56,7 @@ list_quiz = [{"question": '파이썬의 기본 자료형이 아닌 것은 무엇
 #         return list_quiz
       
 # list_quiz = find_quiz_list(quiz)
-def answermaking():
+def answermaking(list_quiz):
     list_user_answer = []
     while True:
         list_answer = []
@@ -77,6 +77,4 @@ def answermaking():
         elif quit_input == 'c':
             pass
     return list_user_answer
-list = answermaking() 
-print(list)     
     
