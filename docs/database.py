@@ -15,16 +15,39 @@ list_quiz = [{"question": '파이썬의 기본 자료형이 아닌 것은 무엇
                  "answer": 'D',
                  "score": 10},
                  {"question":'파이썬에서 제어문으로 사용되지 않는 것은 무엇인가요?',
-                  "chocie":['A. if','B. for','C. while','D. until'],
+                  "choice":['A. if','B. for','C. while','D. until'],
                   "answer":'D',
                   "score": 10}]
-print(list_quiz)
-# class quest():
-#     def __init__(self,mongo_server_link,database_name):                                                                   # collection에 연결하는 함수 
-#         from pymongo import MongoClient
-#         self.mongoClient = MongoClient(mongo_server_link)                                                                 # mongo DB 서버에 연결
-#         self.database = self.mongoClient[database_name]                                                                   # 데이터 베이스에 연결
-#         self.todos_list = self.database["quiz_list"]                                                                     # collection "todos_list"에 연결
-#         self.participants = self.database["participate"]                                                                 # collection "participants"에 연결
-#         self.participants_todo = self.database["participants_todo"]                                                       # collection "participants_todo"에 연결
-        
+# print(list_quiz)
+class quest():
+    def __init__(self,mongo_server_link,database_name):                                                                   # collection에 연결하는 함수 
+        from pymongo import MongoClient
+        self.mongoClient = MongoClient(mongo_server_link)                                                                 # mongo DB 서버에 연결
+        self.database = self.mongoClient[database_name]                                                                   # 데이터 베이스에 연결
+        self.quiz_list = self.database["quiz_list"]                                                                     # collection "todos_list"에 연결
+        self.participate = self.database["participate"]                                                                 # collection "participants"에 연결
+        self.participants_scoring = self.database["participants_scoring"]                                                       # collection "participants_todo"에 연결
+    def upload_quiz_list(self,list):
+        self.quiz_list.delete_many({})
+        self.quiz_list.insert_many(list)
+    def find_quiz_list(self):
+        quiz = self.quiz_list.find({},{"question":1,"choice":1,"answer":1,"score":1})
+        list_quiz = []
+        for i in quiz:
+            dic_quiz = {}
+            dic_quiz["question"] = i["question"]
+            pass
+            dic_quiz["choice"] = i["choice"]
+            pass
+            dic_quiz["answer"] = i["answer"]
+            dic_quiz["score"] = i["score"]
+            list_quiz.append(dic_quiz)
+        return list_quiz
+
+
+
+if __name__ == "__main__":        
+    quest_database = quest("mongodb://192.168.0.164:27017","toy_nosqls")
+    quest_database.quiz_list
+    quest_database.upload_quiz_list(list_quiz)
+    quest_database.find_quiz_list()
