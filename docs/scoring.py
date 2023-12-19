@@ -1,9 +1,9 @@
 #list_quiz의 정답 dict와 answer가 같으면
 #점수 합산.
 
-import database
+# import database
 
-뭐시기뭐시기 = database.function  # list quiz값 받아오기
+# 뭐시기뭐시기 = database.function  # list quiz값 받아오기
 
 list_quiz = [{"question": '파이썬의 기본 자료형이 아닌 것은 무엇인가요?',
               "choice": ['A. 정수(int)', 'B. 실수(float)', 'C. 문자열(str)','D. 불대수(bool)'],
@@ -26,24 +26,27 @@ list_quiz = [{"question": '파이썬의 기본 자료형이 아닌 것은 무엇
                   "answer":'D',
                   "score": 10}]
 
-list_answer = ["참여자 : 입력하는 값"]
 
+pass
+import database
+quest_database = database.quest("mongodb://192.168.0.164:27017","toy_nosqls")
+list_quizs = quest_database.find_quiz_list()
+list_user_answer = quest_database.find_participate()
+print(list_user_answer)
 
+pass
 sum = 0
-every_sum = 0
-
-list_statistics = [0,0,0]
 
 for number in range(len(list_quiz)) :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
-    if list_answer[number]["입력하는 값"] == list_quiz[number]["answer"] :
-        sum = sum + list_quiz[number]["score"에 해당하는 값]      #한사람의 점수 합계구하기
+    if list_user_answer[number]["user_answer"] == list_quiz[number]["answer"] :
+        sum = sum + list_quiz["score"]      #한사람의 점수 합계구하기
 
-    every_sum = every_sum + sum
-    list_answer_average = sum 합계/len(list_answer)
+
+    list_answer_average = sum /len(list_user_answer)
 
     print("응시자별 채점결과:")
-    print("{}:{}".format(list_answer[number][이름],sum))    #list answer에 해당하는 순서의 참여자 이름, 합계
-    print("과목 평균 점수: {}".format(평균값 구하는 식))
+    print("{}:{}".format(list_user_answer[number],sum))    #list answer에 해당하는 순서의 참여자 이름, 합계
+    # print("과목 평균 점수: {}".format(평균값 구하는 식))
 
 
 
