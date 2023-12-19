@@ -39,8 +39,16 @@ pass
 
 sum = 0
 list_sum = []
-for number in range(len(list_quiz)) :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
-    if list_user_answer[number]["user_answer"] == list_quiz[0]["answer"] :
+for number in range(len(list_user_answer)) :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
+    for 
+
+
+
+
+
+
+
+
 
     # if list_user_answer[number]["user_answer"] == list_quiz[number]["answer"] :
         sum = sum + list_quiz[number]["score"]      #한사람의 점수 합계구하기
