@@ -67,7 +67,7 @@ def answermaking(list_quiz):
             user_answer = input("답: ")
             list_answer.append(user_answer)
         dic_user = {}
-        dic_user['name'] = str_username
+        dic_user['user_name'] = str_username
         dic_user['user_answer'] = list_answer
         list_user_answer.append(dic_user)
         quit_input = input("다음 응시자가 있나요? (계속: c, 종료: x): ")
