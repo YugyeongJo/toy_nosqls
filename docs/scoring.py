@@ -38,19 +38,22 @@ print(list_user_answer)
 pass
 
 sum = 0
-
+list_sum = []
 for number in range(len(list_quiz)) :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
+    
     if list_user_answer[number]["user_answer"] == list_quiz[number]["answer"] :
-        sum = sum + list_quiz["score"]      #한사람의 점수 합계구하기
+        sum = sum + list_quiz[number]["score"]      #한사람의 점수 합계구하기
+        list_sum.append(sum)
 
+    for x in range(len(list_sum)) : 
+        total_score = sum(list_sum)
     pass
-    list_user_answer[number]["user_name"]
+    
 
-    users_score=[]
+    list_answer_average = sum /len(list_user_answer)      # sum 합계를 list_user_answer의 
 
 
 
-    list_answer_average = sum /len(list_user_answer)
 
     print("응시자별 채점결과:")
     print("{}:{}".format(list_user_answer[number]["user_name"],sum))    #list answer에 해당하는 순서의 참여자 이름, 합계
