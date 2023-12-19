@@ -35,6 +35,7 @@ class quest():
     def upload_quiz_list(self,list):
         self.quiz_list.delete_many({})
         self.quiz_list.insert_many(list)
+
     def find_quiz_list(self):
         quiz = self.quiz_list.find({},{"question":1,"choice":1,"answer":1,"score":1})
         list_quiz = []
@@ -47,8 +48,21 @@ class quest():
             dic_quiz["answer"] = i["answer"]
             dic_quiz["score"] = i["score"]
             list_quiz.append(dic_quiz)
-        return list_quiz
 
+        return list_quiz
+    def upload_participate(self,list):
+        self.participate.delete_many({})
+        self.participate.insert_many(list)
+
+    def find_participate(self):
+        participate = self.participate.find({},{"user_name":1,"user_answer":1})
+        list_participate = []
+        for i in participate:
+            dic_participate = {}
+            dic_participate["user_name"] = i["user_name"]
+            dic_participate["user_answer"] = i["user_answer"]
+            list_participate.append(dic_participate)
+        return list_participate
 
 
 if __name__ == "__main__":        
@@ -56,3 +70,4 @@ if __name__ == "__main__":
     quest_database.quiz_list
     quest_database.upload_quiz_list(list_quiz)
     list_quizs = quest_database.find_quiz_list()
+    quest_database.upload_participate(list_user_answer)
