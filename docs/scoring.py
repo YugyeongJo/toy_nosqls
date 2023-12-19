@@ -1,4 +1,3 @@
-# list_answer = [a,b,c,d,e] ------------응시자 답변
 #list_quiz의 정답 dict와 answer가 같으면
 #점수 합산.
 
@@ -6,21 +5,44 @@ import database
 
 뭐시기뭐시기 = database.function  # list quiz값 받아오기
 
-list_quiz = ["question : ", "choice : ", "answer : ", "score : " ]
+list_quiz = [{"question": '파이썬의 기본 자료형이 아닌 것은 무엇인가요?',
+              "choice": ['A. 정수(int)', 'B. 실수(float)', 'C. 문자열(str)','D. 불대수(bool)'],
+              "answer": 'D',
+              "score": 10},
+              {"question": '다음 중 파이썬의 주요 특징이 아닌 것은 무엇인가요?',
+               "choice": ['A. 객체 지향적 언어','B. 동적 타이핑 지원', 'C. 메모리 관리 자동화', 'D. 컴파일 언어'],
+               "answer": 'D',
+               "score": 10},
+               {"question":'파이썬에서 리스트를 복사할 때 얕은 복사(shallow copy)를 수행하는 방법으로 옳지 않은 것은 무엇인가요?',
+                "choice": ['A. new_list = old_list.copy()','B. new_list = old_list[:]','C. new_list = list(old_list)','D. new_list = old_list + []'],
+                "answer": 'D',
+                "score": 10},
+                {"question":'다음 중 파이썬에서 제공하는 빌트인 함수가 아닌 것은 무엇인가요?',
+                 "choice":['A. len()','B. type()','C. print()','D. append()'],
+                 "answer": 'D',
+                 "score": 10},
+                 {"question":'파이썬에서 제어문으로 사용되지 않는 것은 무엇인가요?',
+                  "choice":['A. if','B. for','C. while','D. until'],
+                  "answer":'D',
+                  "score": 10}]
 
-list_answer = [D,D,D,D,D]
-
+list_answer = ["참여자 : 입력하는 값"]
 
 
 sum = 0
+every_sum = 0
 
-for number in range(len[list_quiz]) :
-    if list_answer == list_quiz[number]["answer"] :
-        sum = sum + list_quiz[number]["score"]
+list_statistics = [0,0,0]
 
+for number in range(len(list_quiz)) :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
+    if list_answer[number]["입력하는 값"] == list_quiz[number]["answer"] :
+        sum = sum + list_quiz[number]["score"에 해당하는 값]      #한사람의 점수 합계구하기
 
-    print("응사자별 채점결과:")
-    print("{}:{}".format(인풋받은입력값,점수합한값.))
+    every_sum = every_sum + sum
+    list_answer_average = sum 합계/len(list_answer)
+
+    print("응시자별 채점결과:")
+    print("{}:{}".format(list_answer[number][이름],sum))    #list answer에 해당하는 순서의 참여자 이름, 합계
     print("과목 평균 점수: {}".format(평균값 구하는 식))
 
 
