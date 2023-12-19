@@ -18,6 +18,11 @@ list_quiz = [{"question": '파이썬의 기본 자료형이 아닌 것은 무엇
                   "choice":['A. if','B. for','C. while','D. until'],
                   "answer":'D',
                   "score": 10}]
+
+list_user_answer = [{"user_name":'문석천',"user_answer":['A','B','C','D']},
+                    {"user_name":'노주현',"user_answer":['B','C','D','A']},
+                    {"user_name":'조유경',"user_answer":['C','D','A','B']},
+                    {"user_name":'서정민',"user_answer":['D','A','B','C']}]
 # print(list_quiz)
 class quest():
     def __init__(self,mongo_server_link,database_name):                                                                   # collection에 연결하는 함수 
@@ -47,6 +52,7 @@ class quest():
 
 
 if __name__ == "__main__":        
-    
+    quest_database = quest("mongodb://192.168.0.164:27017","toy_nosqls")
     quest_database.quiz_list
     quest_database.upload_quiz_list(list_quiz)
+    list_quizs = quest_database.find_quiz_list()
