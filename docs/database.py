@@ -47,7 +47,6 @@ class quest():
 
 
 if __name__ == "__main__":        
-    quest_database = quest("mongodb://192.168.0.164:27017","toy_nosqls")
+    
     quest_database.quiz_list
     quest_database.upload_quiz_list(list_quiz)
-    quest_database.find_quiz_list()
