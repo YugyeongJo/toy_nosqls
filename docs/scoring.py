@@ -39,48 +39,29 @@ print(list_user_answer)
 
 pass
 
-sum = 0
-list_sum = []
-
-# for number in list_user_answer :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
-#     for num_question in list_quiz :
-#         if number["user_answer"] == num_question["answer"] :
-#             sum = sum + num_question["score"]      #한사람의 점수 합계구하기
-#             list_sum.append(sum)
-
-
-for number in range(len(list_user_answer)) :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
-    for num_question in range(len(list_quiz)) :
-        if list_quiz[num_question]["answer"] == list_user_answer[number]["user_answer"][num_question] :
-            sum = sum + list_quiz[number]["score"]      #한사람의 점수 합계구하기
-            list_sum.append(sum)
-
-print(list_sum)
-pass
-total_score = 0
-for i in range(len(list_sum)):
-    total_score = total_score + list_sum[i]
-print(total_score)
-
-average = total_score/len(list_user_answer)    # sum 합계를 list_user_answer의 
-    
-
-     
+def calculating(list_user_answer,list_quiz):
+    sum = 0
+    list_sum = []
+    for number in range(len(list_user_answer)) :                              #list_quiz 내용만큼 숫자 받아 for구문 돌리기
+        for num_question in range(len(list_quiz)) :
+            if list_quiz[num_question]["answer"] == list_user_answer[number]["user_answer"][num_question] :
+                sum = sum + list_quiz[number]["score"]      #한사람의 점수 합계구하기
+                list_sum.append(sum)
+    return list_sum
+def averazing(list_sum,list_user_answer):               
+    total_score = 0
+    for i in range(len(list_sum)):
+        total_score = total_score + list_sum[i]
+    print(total_score)
+    average = total_score/len(list_user_answer)    # sum 합계를 list_user_answer의 
+    print("응시자별 채점결과:")
+    for number in range(len(list_user_answer)) :
+        print("{}:{}점".format(list_user_answer[number]["user_name"],list_sum[number]))    #list answer에 해당하는 순서의 참여자 이름, 합계
+    print("과목 평균 점수: {}".format(average))
+    return  average
 
 
 
-
-print("응시자별 채점결과:")
-print("{}:{}점".format(list_user_answer[number]["user_name"],sum))    #list answer에 해당하는 순서의 참여자 이름, 합계
-print("과목 평균 점수: {}".format(average))
-
-
-
-# 각 문항 정답 [1, 2, 3, 4, 1]
-
-
-# 응시자별 채점 결과:
-#   홍길동: 95점
-#   이순신: 85점
-#   ...
-# 과목 평균 점수: 90점
+if __name__ == "__main__":
+    apple = calculating(list_user_answer,list_quiz)
+    averazing(apple,list_user_answer)
