@@ -71,3 +71,4 @@ if __name__ == "__main__":
     quest_database.upload_quiz_list(list_quiz)
     list_quizs = quest_database.find_quiz_list()
     quest_database.upload_participate(list_user_answer)
+    
