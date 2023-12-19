@@ -1,10 +1,7 @@
-
-
-
 def quizmaking():
     list_quiz = []
-    question_type = int(input("문제 유형을 입력하세요. 숫자만 입력하세요."))
-    num_questions = int(input("문항 수를 입력하세요."))
+    question_type = int(input("문제 유형을 입력하세요. 숫자만 입력하세요.: "))
+    num_questions = int(input("문항 수를 입력하세요.: "))
     print("문제와 선택지를 입력하세요.")
     for quiz in range(num_questions):
         dict_quizlist = {}
