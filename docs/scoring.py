@@ -61,17 +61,6 @@ for number in range(len(list_quiz)) :                              #list_quiz �
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # 각 문항 정답 [1, 2, 3, 4, 1]
 
 
