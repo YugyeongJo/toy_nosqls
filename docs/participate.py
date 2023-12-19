@@ -1,10 +1,6 @@
-import quizlist  # quizlist 모듈을 가져옴
-
-# quizmaking 함수를 사용해 문제 리스트를 생성
-list_quiz = quizlist.quizmaking()  
 
 # 사용자의 답안을 기록하는 함수
-def answermaking():  
+def answermaking(list_quiz):  
     # 사용자의 답안을 저장할 리스트 초기화
     list_user_answer = []  
 
@@ -30,7 +26,7 @@ def answermaking():
         # 사용자의 이름과 답안을 저장할 딕셔너리 초기화    
         dic_user = {}  
         # 사용자 이름 딕셔너리에 저장
-        dic_user['name'] = str_username  
+        dic_user['user_name'] = str_username  
         # 사용자 답안 딕셔너리에 저장
         dic_user['user_answer'] = list_answer  
         
@@ -43,6 +39,3 @@ def answermaking():
         elif quit_input == 'c':  # 'c'를 입력하면
             continue  # 다음 사용자를 위해 루프 계속
 
-list = answermaking()
-
-print(list)
