@@ -1,5 +1,5 @@
-git : 
-mongodb : 
+git : https://github.com/YugyeongJo/toy_nosqls
+mongodb : mongodb://192.168.0.164:27017
 
 
 [역할분담]
