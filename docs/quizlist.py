@@ -5,14 +5,16 @@ print("문제와 선택지를 입력하세요.")
 
 list_quiz = []
 
-for quiz in range(num_questions):
-    dict_quizlist = {}
-    dict_quizlist["question"] = input("문항 : ")
-    dict_quizlist["choice"] = []
-    for choice in range(question_type) : 
-        dict_quizlist["choice"].append(input("보기 : "))
-    dict_quizlist["answer"] = input("정답 : ")
-    dict_quizlist["score"] = int(input("배점 : "))
-    list_quiz.append(dict_quizlist)
+def quizmaking():
+    for quiz in range(num_questions):
+        dict_quizlist = {}
+        dict_quizlist["question"] = input("문항 : ")
+        dict_quizlist["choice"] = []
+        for choice in range(question_type) : 
+            dict_quizlist["choice"].append(input("보기 : "))
+        dict_quizlist["answer"] = input("정답 : ")
+        dict_quizlist["score"] = int(input("배점 : "))
+        list_quiz.append(dict_quizlist)
+    return dict_quizlist
 
-print(list_quiz)
+quizmaking()
