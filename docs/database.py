@@ -55,10 +55,11 @@ class quest():
         self.participate.insert_many(list)
 
     def find_participate(self):
-        participate = self.participate.find({},{"user_name":1,"user_answer":1})
+        participate = self.participate.find({},{"_id": 1,"user_name":1,"user_answer":1})
         list_participate = []
         for i in participate:
             dic_participate = {}
+            dic_participate["user_id"] = i["_id"]
             dic_participate["user_name"] = i["user_name"]
             dic_participate["user_answer"] = i["user_answer"]
             list_participate.append(dic_participate)
