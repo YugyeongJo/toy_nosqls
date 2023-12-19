@@ -80,14 +80,25 @@ class quest():
             list_scoring.append(i["score"])
         return list_scoring
 
+    def scoring_upload(self,list,list_participate):
+        list_sum = []
+        for i in range(len(list)):
+            dict_sum = {}
+            dict_sum["user_id"] = list_participate[i]["user_id"]
+            dict_sum["user_name"] = list_participate[i]["user_name"]
+            dict_sum["user_sum"] = list[i]
+            list_sum.append(dict_sum)
+        self.participants_scoring.insert_many(list_sum)
 
-
+list_sum = [5,5,5,5]
 if __name__ == "__main__":        
     quest_database = quest("mongodb://192.168.0.164:27017","toy_nosqls")
     quest_database.quiz_list
     quest_database.upload_quiz_list(list_quiz)
     list_quizs = quest_database.find_quiz_list()
     quest_database.upload_participate(list_user_answer)
+    list_participate = quest_database.find_participate()
     print(quest_database.find_answer())
     print(quest_database.find_scoring())
+    quest_database.scoring_upload(list_sum,list_participate)
     
