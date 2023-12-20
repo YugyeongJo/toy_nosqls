@@ -30,7 +30,7 @@ def answermaking(list_quiz):
         
         # 사용자 이름과 답안이 저장된 딕셔너리를 리스트에 추가
         list_user_answer.append(dic_user)  
-        quit_input = input("다음 응시자가 있나요? (계속: c, 종료: x): ")
+        quit_input = input("다음 응시자가 있나요? (계속: c, 종료: x): ").lower()
         if quit_input == 'x':                  # 'x'를 입력하면
             print("프로그램이 종료되었습니다.")  # 종료 메시지 출력 후
             return list_user_answer            # 사용자 답안 리스트 반환

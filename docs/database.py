@@ -43,7 +43,6 @@ class quest():
     
     def find_answer(self):                                                                                               # collection "quiz_list"에서 answer 가져오기
         answer = self.quiz_list.find({},{"answer":1})
-        list_scoring = []
         list_answer = []
         for i in answer:
             list_answer.append(i["answer"])
