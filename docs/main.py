@@ -1,8 +1,8 @@
 import quizlist, database, participate,scoring
 
-list_quiz=quizlist.quizmaking()                                                          # 입력 받은 list를 list_quiz로 지정  
-pass
 quest_database = database.quest("mongodb://192.168.0.164:27017","toy_nosqls")            # "toy_nosqlis"에 접속
+pass
+list_quiz=quizlist.quizmaking()                                                          # 입력 받은 list를 list_quiz로 지정  
 pass
 quest_database.upload_quiz_list(list_quiz)                                               # collection "quiz_list"에 list_quiz 업로드
 pass
