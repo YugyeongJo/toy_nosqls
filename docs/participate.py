@@ -8,13 +8,11 @@ def answermaking(list_quiz):
         # 각 사용자의 답안을 저장할 리스트 초기화
         list_answer = []  
         str_username = input("응시자의 이름을 입력하세요: ")  # 사용자 이름 입력
-        index_number = 1  # 문제 번호 초기화
         
         # 문제 리스트의 길이만큼 반복
         for i in range(len(list_quiz)):  
             quizs = list_quiz[i]["question"]  # 문제를 추출
-            print("문항{}: {}".format(index_number, quizs))  # 문제 번호와 문제 출력
-            index_number += 1  # 문제 번호 증가
+            print("문항{}: {}".format(i+1, quizs))  # 문제 번호와 문제 출력
             choices = list_quiz[i]["choice"]  # 선택지 추출
             print("선택지")  # "선택지" 출력
             for j in range(len(choices)):  # 선택지의 갯수만큼 반복
