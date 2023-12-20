@@ -4,14 +4,15 @@ class quest():
         from pymongo import MongoClient
         self.mongoClient = MongoClient(mongo_server_link)                                                                 # mongo DB 서버에 연결
         self.database = self.mongoClient[database_name]                                                                   # 데이터 베이스에 연결
-        self.quiz_list = self.database["quiz_list"]                                                                     # collection "todos_list"에 연결
-        self.participate = self.database["participate"]                                                                 # collection "participants"에 연결
-        self.participants_scoring = self.database["participants_scoring"]                                                       # collection "participants_todo"에 연결
-    def upload_quiz_list(self,list):
+        self.quiz_list = self.database["quiz_list"]                                                                       # collection "quiz_list"에 연결
+        self.participate = self.database["participate"]                                                                   # collection "participate"에 연결
+        self.participants_scoring = self.database["participants_scoring"]                                                 # collection "participants_scoring"에 연결
+    
+    def upload_quiz_list(self,list):                                                                                      # 입력된 quiz list를 collection "quiz_list"에 업로드
         self.quiz_list.delete_many({})
         self.quiz_list.insert_many(list)
 
-    def find_quiz_list(self):
+    def find_quiz_list(self):                                                                                            # collection "quiz_list"에서 quetion,choice,answer,score 가져오기
         quiz = self.quiz_list.find({},{"question":1,"choice":1,"answer":1,"score":1})
         list_quiz = []
         for i in quiz:
@@ -23,13 +24,13 @@ class quest():
             dic_quiz["answer"] = i["answer"]
             dic_quiz["score"] = i["score"]
             list_quiz.append(dic_quiz)
-
         return list_quiz
-    def upload_participate(self,list):
+    
+    def upload_participate(self,list):                                                                                   # 참가자의 이름, 답변을 collection "participate"에 업로드
         self.participate.delete_many({})
         self.participate.insert_many(list)
 
-    def find_participate(self):
+    def find_participate(self):                                                                                          # collection "participate"에서 id, user_name, user_answer 가져오기
         participate = self.participate.find({},{"_id": 1,"user_name":1,"user_answer":1})
         list_participate = []
         for i in participate:
@@ -40,7 +41,7 @@ class quest():
             list_participate.append(dic_participate)
         return list_participate
     
-    def find_answer(self):
+    def find_answer(self):                                                                                               # collection "quiz_list"에서 answer 가져오기
         answer = self.quiz_list.find({},{"answer":1})
         list_scoring = []
         list_answer = []
@@ -48,14 +49,14 @@ class quest():
             list_answer.append(i["answer"])
         return list_answer
 
-    def find_scoring(self):
+    def find_scoring(self):                                                                                              # collection "quiz_list"에서 score 가져오기
         scoring = self.quiz_list.find({},{"score":1})
         list_scoring = []
         for i in scoring:
             list_scoring.append(i["score"])
         return list_scoring
 
-    def scoring_upload(self,list,list_participate):
+    def scoring_upload(self,list,list_participate):                                                                        # 참가자의 id, 이름, 점수를 collection "participate_scoring"에 업로드
         list_sum = []
         for i in range(len(list)):
             dict_sum = {}
