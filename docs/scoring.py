@@ -1,12 +1,3 @@
-#list_quiz의 정답 dict와 answer가 같으면
-#점수 합산.
-
-# import database
-
-# 뭐시기뭐시기 = database.function  # list quiz값 받아오기
-
-
-
 def calculating(list_user_answer,list_quiz):
     list_sum = []
     for number in range(len(list_user_answer)) :  #------------------------------------------------------------------------------------list_quiz 내용만큼 숫자 받아 for구문 돌리기
@@ -17,13 +8,13 @@ def calculating(list_user_answer,list_quiz):
                 pass
             pass
         pass
-        list_sum.append(sum)
+        list_sum.append(sum) #-------------------------------------------------------------------------------------------------------list_sum에 위에서 받는 sum 값을 리스트로 배열
         pass
     return list_sum
 def averazing(list_sum,list_user_answer):               
     total_score = 0
     for i in range(len(list_sum)):
-        total_score = total_score + list_sum[i]
+        total_score = total_score + list_sum[i] #-------------------------------------------------------------------------------list_sum 내 값들을 순서대로 더해 점수 총합을 구하기
         pass
     pass
     average = total_score/len(list_user_answer)  #--------------------------------------------------------------------------------------total score를 user수 만큼 나눠 평균 구하기
