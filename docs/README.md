@@ -1,25 +1,17 @@
 git : https://github.com/YugyeongJo/toy_nosqls
-
 mongodb : mongodb://192.168.0.164:27017
 
 
 [역할분담]
+```
 1. 문제출제 : 조유경
 2. 응시자 : 서정민
 3. 점수통계 : 문석천
 4. 데이터베이스 관리자 : 노주현
-
-[Naming Rule]
-
-list_quiz - 문항, 선택지, 점수, 정답모음  
-dict_quizlist - 문항 1개
-
-list_username - 응시자 이름
-list_answer - 응시자의 답변
-
-list_userscore - 응시자별 채점 결과
+```
 
 [문제]
+```
 파이썬의 기본 자료형이 아닌 것은 무엇인가요?
 A. 정수(int)
 B. 실수(float)
@@ -57,3 +49,4 @@ D
 10
 
 답: 1.D, 2.D, 3.D, 4.D, 5.D
+```
